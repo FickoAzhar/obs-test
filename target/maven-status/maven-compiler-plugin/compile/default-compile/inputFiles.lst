@@ -1,0 +1,15 @@
+/Users/fickoazhar/Documents/Programming/Springboot/obs-test/src/main/java/com/example/obs_test/ObsTestApplication.java
+/Users/fickoazhar/Documents/Programming/Springboot/obs-test/src/main/java/com/example/obs_test/controller/InventoryController.java
+/Users/fickoazhar/Documents/Programming/Springboot/obs-test/src/main/java/com/example/obs_test/controller/ItemController.java
+/Users/fickoazhar/Documents/Programming/Springboot/obs-test/src/main/java/com/example/obs_test/controller/OrderController.java
+/Users/fickoazhar/Documents/Programming/Springboot/obs-test/src/main/java/com/example/obs_test/dto/AddInventoryRequest.java
+/Users/fickoazhar/Documents/Programming/Springboot/obs-test/src/main/java/com/example/obs_test/entity/Inventory.java
+/Users/fickoazhar/Documents/Programming/Springboot/obs-test/src/main/java/com/example/obs_test/entity/Item.java
+/Users/fickoazhar/Documents/Programming/Springboot/obs-test/src/main/java/com/example/obs_test/entity/Order.java
+/Users/fickoazhar/Documents/Programming/Springboot/obs-test/src/main/java/com/example/obs_test/exception/GlobalExceptionHandler.java
+/Users/fickoazhar/Documents/Programming/Springboot/obs-test/src/main/java/com/example/obs_test/repository/InventoryRepository.java
+/Users/fickoazhar/Documents/Programming/Springboot/obs-test/src/main/java/com/example/obs_test/repository/ItemRepository.java
+/Users/fickoazhar/Documents/Programming/Springboot/obs-test/src/main/java/com/example/obs_test/repository/OrderRepository.java
+/Users/fickoazhar/Documents/Programming/Springboot/obs-test/src/main/java/com/example/obs_test/service/InventoryService.java
+/Users/fickoazhar/Documents/Programming/Springboot/obs-test/src/main/java/com/example/obs_test/service/ItemService.java
+/Users/fickoazhar/Documents/Programming/Springboot/obs-test/src/main/java/com/example/obs_test/service/OrderService.java

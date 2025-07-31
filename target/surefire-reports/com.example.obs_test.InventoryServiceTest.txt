@@ -1,0 +1,37 @@
+-------------------------------------------------------------------------------
+Test set: com.example.obs_test.InventoryServiceTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 1, Errors: 2, Skipped: 0, Time elapsed: 0.077 s <<< FAILURE! -- in com.example.obs_test.InventoryServiceTest
+com.example.obs_test.InventoryServiceTest.testCalculateStock_Success -- Time elapsed: 0.012 s <<< ERROR!
+java.lang.RuntimeException: Item not found
+	at com.example.obs_test.service.InventoryService.lambda$calculateStock$2(InventoryService.java:53)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.example.obs_test.service.InventoryService.calculateStock(InventoryService.java:53)
+	at com.example.obs_test.InventoryServiceTest.testCalculateStock_Success(InventoryServiceTest.java:51)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.example.obs_test.InventoryServiceTest.testSave_WithdrawWithSufficientStock -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.RuntimeException: Item not found
+	at com.example.obs_test.service.InventoryService.lambda$save$0(InventoryService.java:22)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.example.obs_test.service.InventoryService.save(InventoryService.java:22)
+	at com.example.obs_test.InventoryServiceTest.testSave_WithdrawWithSufficientStock(InventoryServiceTest.java:65)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.example.obs_test.InventoryServiceTest.testSave_WithdrawWithInsufficientStock_ShouldThrow -- Time elapsed: 0.006 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Insufficient stock> but was: <Item not found>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at com.example.obs_test.InventoryServiceTest.testSave_WithdrawWithInsufficientStock_ShouldThrow(InventoryServiceTest.java:81)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
