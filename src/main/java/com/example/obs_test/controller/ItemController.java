@@ -1,11 +1,14 @@
 package com.example.obs_test.controller;
 
-import com.example.obs_test.entity.Item;
+import com.example.obs_test.dto.ItemDto;
+import com.example.obs_test.dto.ItemRequest;
 import com.example.obs_test.service.ItemService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,29 +26,29 @@ public class ItemController {
     private final ItemService itemService;
 
     @GetMapping("/{id}")
-    public Item getById(@PathVariable Long id) {
-        return itemService.findById(id);
+    public ResponseEntity<ItemDto> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(itemService.findById(id));
     }
 
     @GetMapping
-    public Page<Item> getAllItems(@PageableDefault(size = 10, sort = "id") Pageable pageable) {
-        return itemService.getAllItemsWithStock(pageable);
+    public ResponseEntity<Page<ItemDto>> getAllItems(@PageableDefault(size = 10, sort = "id") Pageable pageable) {
+        return ResponseEntity.ok(itemService.getAllItemsWithStock(pageable));
     }
 
-
     @PostMapping
-    public Item createItem(@RequestBody Item item) {
-        return itemService.save(item);
+    public ResponseEntity<ItemDto> createItem(@Valid @RequestBody ItemRequest item) {
+        return ResponseEntity.ok(itemService.save(item));
     }
 
     @PutMapping("/{id}")
-    public Item updateInventory(@PathVariable Long id, @RequestBody Item request) {
-        return itemService.update(id, request);
+    public ResponseEntity<ItemDto> updateItem(@PathVariable Long id, @RequestBody ItemRequest request) {
+        return ResponseEntity.ok(itemService.update(id, request));
     }
 
     @DeleteMapping("/{id}")
-    public void deleteItem(@PathVariable Long id) {
+    public ResponseEntity<String> deleteItem(@PathVariable Long id) {
         itemService.delete(id);
+        return ResponseEntity.ok("Item with ID " + id + " deleted successfully");
     }
 }
 

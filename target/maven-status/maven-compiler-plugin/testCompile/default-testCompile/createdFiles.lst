@@ -1,3 +1,7 @@
-com/example/obs_test/InventoryServiceTest.class
-com/example/obs_test/OrderControllerTest.class
-com/example/obs_test/ObsTestApplicationTests.class
+com\example\obs_test\controller\OrderControllerTest.class
+com\example\obs_test\service\InventoryServiceTest.class
+com\example\obs_test\controller\ItemControllerTest.class
+com\example\obs_test\service\ItemServiceTest.class
+com\example\obs_test\controller\InventoryControllerTest.class
+com\example\obs_test\ObsTestApplicationTests.class
+com\example\obs_test\service\OrderServiceTest.class

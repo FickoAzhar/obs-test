@@ -1,3 +1,7 @@
-/Users/fickoazhar/Documents/Programming/Springboot/obs-test/src/test/java/com/example/obs_test/InventoryServiceTest.java
-/Users/fickoazhar/Documents/Programming/Springboot/obs-test/src/test/java/com/example/obs_test/ObsTestApplicationTests.java
-/Users/fickoazhar/Documents/Programming/Springboot/obs-test/src/test/java/com/example/obs_test/OrderServiceTest.java
+D:\Code\obs-test\src\test\java\com\example\obs_test\controller\InventoryControllerTest.java
+D:\Code\obs-test\src\test\java\com\example\obs_test\controller\ItemControllerTest.java
+D:\Code\obs-test\src\test\java\com\example\obs_test\controller\OrderControllerTest.java
+D:\Code\obs-test\src\test\java\com\example\obs_test\ObsTestApplicationTests.java
+D:\Code\obs-test\src\test\java\com\example\obs_test\service\InventoryServiceTest.java
+D:\Code\obs-test\src\test\java\com\example\obs_test\service\ItemServiceTest.java
+D:\Code\obs-test\src\test\java\com\example\obs_test\service\OrderServiceTest.java

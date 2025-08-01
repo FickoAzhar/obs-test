@@ -1,49 +1,65 @@
 package com.example.obs_test.service;
 
+import com.example.obs_test.dto.ItemDto;
+import com.example.obs_test.dto.ItemRequest;
 import com.example.obs_test.entity.Item;
+import com.example.obs_test.exception.DataNotFoundException;
 import com.example.obs_test.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
 public class ItemService {
 
     private final ItemRepository itemRepository;
-    private final InventoryService inventoryService;
 
-    public Page<Item> getAllItemsWithStock(Pageable pageable) {
-        Page<Item> itemsPage = itemRepository.findAll(pageable);
-        itemsPage.forEach(item -> {
-            int stock = inventoryService.calculateStock(item.getId());
-            item.setRemainingStock(stock);
-        });
-        return itemsPage;
+    @Transactional(readOnly = true)
+    public Page<ItemDto> getAllItemsWithStock(Pageable pageable) {
+        return itemRepository.findAll(pageable)
+                .map(this::convertItemToDto);
     }
 
-    public Item save(Item item) {
-        return itemRepository.save(item);
+    public ItemDto save(ItemRequest request) {
+        Item item = itemRepository.save(Item.builder().name(request.getName()).price(request.getPrice()).build());
+        return convertItemToDto(item);
     }
 
-    public Item findById(Long id) {
-        return itemRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Item not found"));
-    }
-
-    public Item update(Long id, Item request) {
+    public ItemDto findById(Long id) {
         Item item = itemRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Inventory not found"));
+                .orElseThrow(() -> new DataNotFoundException(id));
+        return convertItemToDto(item);
+    }
+
+    public ItemDto update(Long id, ItemRequest request) {
+        Item item = itemRepository.findById(id)
+                .orElseThrow(() -> new DataNotFoundException(id));
 
         item.setName(request.getName());
-        item.setRemainingStock(request.getRemainingStock());
         item.setPrice(request.getPrice());
-        return itemRepository.save(item);
+        itemRepository.save(item);
+        return convertItemToDto(item);
     }
 
     public void delete(Long id) {
-        itemRepository.deleteById(id);
+        Item item = itemRepository.findById(id)
+                .orElseThrow(() -> new DataNotFoundException(id));
+        itemRepository.delete(item);
+    }
+
+    ItemDto convertItemToDto(Item item) {
+        if (item == null)
+            return null;
+
+        return ItemDto.builder()
+                .id(item.getId())
+                .name(item.getName())
+                .price(item.getPrice())
+                .remainingStock(item.getRemainingStock())
+                .build();
     }
 }
 
